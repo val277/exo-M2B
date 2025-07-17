@@ -8,7 +8,6 @@ const offresEmploi = [
     experience: "2-5 ans",
     niveauEtude: "Bac+3",
     secteur: "Privé",
-    isFavorite: false,
   },
   {
     id: 2,
@@ -17,7 +16,6 @@ const offresEmploi = [
     experience: "0-2 ans",
     niveauEtude: "Bac+5",
     secteur: "Privé",
-    isFavorite: false,
   },
   {
     id: 3,
@@ -26,7 +24,6 @@ const offresEmploi = [
     experience: "5+ ans",
     niveauEtude: "Bac+5",
     secteur: "Public",
-    isFavorite: false,
   },
   {
     id: 4,
@@ -35,7 +32,6 @@ const offresEmploi = [
     experience: "5+ ans",
     niveauEtude: "Bac+3",
     secteur: "Privé",
-    isFavorite: false,
   },
   {
     id: 5,
@@ -44,7 +40,6 @@ const offresEmploi = [
     experience: "2-5 ans",
     niveauEtude: "Bac+3",
     secteur: "Associatif",
-    isFavorite: false,
   },
   {
     id: 6,
@@ -53,7 +48,6 @@ const offresEmploi = [
     experience: "0-2 ans",
     niveauEtude: "Bac+2",
     secteur: "Public",
-    isFavorite: false,
   },
 ];
 
