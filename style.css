@@ -23,3 +23,7 @@ fieldset {
   margin-bottom: 10px;
   border-radius: 4px;
 }
+
+.favorite {
+  background-color: gold;
+}

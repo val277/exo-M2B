@@ -8,6 +8,7 @@ const offresEmploi = [
     experience: "2-5 ans",
     niveauEtude: "Bac+3",
     secteur: "Privé",
+    isFavorite: false,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const offresEmploi = [
     experience: "0-2 ans",
     niveauEtude: "Bac+5",
     secteur: "Privé",
+    isFavorite: false,
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const offresEmploi = [
     experience: "5+ ans",
     niveauEtude: "Bac+5",
     secteur: "Public",
+    isFavorite: false,
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const offresEmploi = [
     experience: "5+ ans",
     niveauEtude: "Bac+3",
     secteur: "Privé",
+    isFavorite: false,
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ const offresEmploi = [
     experience: "2-5 ans",
     niveauEtude: "Bac+3",
     secteur: "Associatif",
+    isFavorite: false,
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ const offresEmploi = [
     experience: "0-2 ans",
     niveauEtude: "Bac+2",
     secteur: "Public",
+    isFavorite: false,
   },
 ];
 
@@ -60,6 +66,17 @@ function filtrerOffres() {
   ).value;
   const niveauEtude = document.getElementById("niveauEtude").value;
   const secteur = document.getElementById("secteur").value;
+
+  if (
+    domaine !== "" ||
+    experience !== "" ||
+    niveauEtude !== "" ||
+    secteur !== ""
+  ) {
+    isFiltered = true;
+  } else {
+    isFiltered = false;
+  }
 
   // Retourne une liste en filtrant que les objets qui correspondent aux paramètres utilisateurs
   return offresEmploi.filter(
@@ -91,10 +108,38 @@ function afficherResultats(offres) {
     li.className = "job-item";
     // Rempli le li
     li.textContent = `${offre.titre} - ${offre.domaine}, ${offre.experience}, ${offre.niveauEtude}, ${offre.secteur}`;
+    if (localStorage.getItem(offre.id)) {
+      li.classList.add("favorite");
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "Supprimer";
+      delBtn.addEventListener("click", () => {
+        localStorage.removeItem(offre.id);
+        if (isFiltered) {
+          afficherResultats(filtrerOffres());
+        } else {
+          afficherResultats(offresEmploi);
+        }
+      });
+      li.appendChild(delBtn);
+    } else {
+      const addBtn = document.createElement("button");
+      addBtn.textContent = "Ajouter";
+      addBtn.addEventListener("click", () => {
+        localStorage.setItem(offre.id, true);
+        if (isFiltered) {
+          afficherResultats(filtrerOffres());
+        } else {
+          afficherResultats(offresEmploi);
+        }
+      });
+      li.appendChild(addBtn);
+    }
     // Rajoute le li en enfant de l'ul
     ul.appendChild(li);
   });
 }
+
+let isFiltered = false;
 
 // Rajoute l'event de click sur le bouton rechercher pour filtrer les offres et les afficher
 document.getElementById("btnSearch").addEventListener("click", () => {
