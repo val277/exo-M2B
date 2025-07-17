@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recherche d'offres d'emploi</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <h1>Recherche d'offres d'emploi</h1>
+    <form id="searchForm">
+      <label for="domaine">Domaine :</label>
+      <select id="domaine" name="domaine">
+        <option value="">-- Tous --</option>
+        <option value="Informatique">Informatique</option>
+        <option value="Ressources Humaines">Ressources Humaines</option>
+        <option value="Comptabilité">Comptabilité</option>
+        <option value="Marketing">Marketing</option>
+      </select>
+
+      <label>Expérience :</label>
+      <fieldset>
+        <label
+          ><input type="radio" name="experience" value="" checked /> Tous</label
+        >
+        <label
+          ><input type="radio" name="experience" value="0-2 ans" /> 0-2
+          ans</label
+        >
+        <label
+          ><input type="radio" name="experience" value="2-5 ans" /> 2-5
+          ans</label
+        >
+        <label
+          ><input type="radio" name="experience" value="5+ ans" /> 5+ ans</label
+        >
+      </fieldset>
+
+      <label for="niveauEtude">Niveau d'études :</label>
+      <select id="niveauEtude" name="niveauEtude">
+        <option value="">-- Tous --</option>
+        <option value="Bac+2">Bac+2</option>
+        <option value="Bac+3">Bac+3</option>
+        <option value="Bac+5">Bac+5</option>
+      </select>
+
+      <label for="secteur">Secteur :</label>
+      <select id="secteur" name="secteur">
+        <option value="">-- Tous --</option>
+        <option value="Privé">Privé</option>
+        <option value="Public">Public</option>
+        <option value="Associatif">Associatif</option>
+      </select>
+
+      <button type="button" id="btnSearch">Rechercher</button>
+    </form>
+
+    <h2>Résultats</h2>
+    <ul id="jobResults" class="job-list"></ul>
+  </body>
+</html>
